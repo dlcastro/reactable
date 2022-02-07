@@ -227,7 +227,7 @@ reactable <- function(data, columns = NULL, columnGroups = NULL,
     if (!all(groupBy %in% colnames(data))) {
       stop("`groupBy` columns must exist in `data`")
     }
-    if (any(sapply(columns[groupBy], function(col) !is.null(col[["details"]])))) {
+    if (any(sapply(columns[groupBy], function(col) !is.null(reactablefmtr::html(col[["details"]]))))) {
       stop("`details` cannot be used on a grouping column")
     }
   }
